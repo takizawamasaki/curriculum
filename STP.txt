@@ -1,0 +1,41 @@
+問１
+　
+・Switch1：32769
+・Switch2：20481
+・Switch3：4097
+・Switch4：8193
+ブリッジプライオリティが最も小さいswitch３がルートブリッジになる。
+
+問2
+まず各switch間のポート速度とショートパスコストを述べる。
+switch1ーswitch2　100Mbps　19
+switch2ーswitch4　10Mbps　 100
+switch4ーswitch3　10Mbps　 100
+switch3ーswitch1　10Mbps　 100
+
+ルートパスコスト計算
+switch１－２－４－３…219
+switch１－３…100
+以上からswitch１下がRP	
+
+switch２―１－３…119
+switch２－４－３…200
+以上からswitch２左がRP
+
+switch４－３…100
+switch４－２－１－３…219
+以上からswitch４左がRP
+
+ルートブリッジの全てのポートは必ず指定ポートになる
+ルートポートの向かいのポートは必ず指定ポートになる
+ことから、
+switch３の上と右はDP
+switch１の右はDPとなる。
+
+switch２ーswitch４を比べると、異なる通信速度のインターフェース同士で接続した際には、通信速度の遅い方に合わせて動作することから
+switch４の上がDPとなる。
+
+そしてswitch２の下がRPでもDPないのでBPとなる。
+
+画像も送付しておきます。
+
